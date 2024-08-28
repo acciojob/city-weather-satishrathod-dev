@@ -31,7 +31,7 @@ const WeatherReport = () => {
     }
   }, []);
 
-  const searchLocation = () => {
+  const searchLocation = (event) => {
     if (event.key === "Enter") {
       fetchApiData(location);
     }
