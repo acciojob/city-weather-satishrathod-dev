@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "regenerator-runtime/runtime";
 
 const WeatherReport = () => {
   const [location, setLocation] = useState("");
