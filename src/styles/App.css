@@ -60,3 +60,14 @@ input {
   font-size: 30px;
   font-weight: bold;
 }
+
+.search {
+  width: 200px;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.search-btn {
+  width: 100px;
+  padding: 10px 5px;
+}
