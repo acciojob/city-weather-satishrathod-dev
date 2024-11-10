@@ -6,6 +6,7 @@ const App = () => {
   const [weartherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [city, setCity] = useState("");
 
   async function fetchWeather(query) {
     // const query = "delhi";
@@ -22,6 +23,7 @@ const App = () => {
       // fetchData.then((response) => console.log(response));
       const data = await fetchData.json();
       console.log(data);
+
       if (data.cod !== 200) {
         setError("City not found. Please try again.");
         setWeatherData(null);
@@ -30,6 +32,7 @@ const App = () => {
       }
       setWeatherData(data);
       setLoading(false);
+      setCity("");
     } catch {
       setError("Failed to fetch weather data. Please try again");
       setLoading(false);
@@ -41,7 +44,7 @@ const App = () => {
       {/* Do not remove the main div */}
       <h1>Weather App</h1>
       {/* Pass the fetchWeather function as a prop to WeatherReport */}
-      <WeatherReport handleClick={fetchWeather} />
+      <WeatherReport handleClick={fetchWeather} city={city} setCity={setCity} />
 
       {/* Display weather data if it exists */}
       {loading && <p>Loading weather data...</p>}

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "regenerator-runtime/runtime";
 
-const WeatherReport = ({ handleClick }) => {
-  const [city, setCity] = useState("");
+const WeatherReport = ({ handleClick, city, setCity }) => {
+  const [cityInput, setCityInput] = useState(city);
 
   const handleCity = () => {
-    if (city) {
-      handleClick(city);
+    if (cityInput) {
+      handleClick(cityInput);
+      setCityInput("");
+      setCity("");
     } else {
       alert("Please enter a city");
     }
@@ -19,8 +21,8 @@ const WeatherReport = ({ handleClick }) => {
         className="search"
         type="text"
         placeholder="Enter City"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
+        value={cityInput}
+        onChange={(e) => setCityInput(e.target.value)}
       />
       <button className="search-btn" onClick={handleCity}>
         Search
